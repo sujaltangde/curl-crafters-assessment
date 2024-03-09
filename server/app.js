@@ -16,12 +16,12 @@ app.use(cors({
 
 
 // Routes Import
-// const user = require("./routes/userRoutes.js")
-// const transaction = require("./routes/transactionRoutes.js")
+const user = require("./routes/userRoutes.js")
+// const results = require("./routes/resultsRoutes.js")
 
 
 
-// app.use("/api/", user);
+app.use("/api/", user);
 
 
 
