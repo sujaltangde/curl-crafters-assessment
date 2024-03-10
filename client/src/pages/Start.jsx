@@ -2,25 +2,33 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from '../components/Navbar'
 import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../config/firebase";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { addQuestions, getQuestions } from '../actions/quizActions';
 
 
 export const Start = () => {
 
-  const [user, setUser] = useState();
+  const { loading, isLogin } = useSelector((state) => state.user);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    if (user === null) {
+
+    if (!isLogin) {
       navigate("/auth/login");
     }
-  }, [user])
+  }, [isLogin]);
+
+  useEffect(()=>{
+
+    dispatch(addQuestions())
+    dispatch(getQuestions())
+
+  },[])
+
+  
 
   
   return (

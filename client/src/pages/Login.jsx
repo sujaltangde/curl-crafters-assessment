@@ -1,45 +1,27 @@
 import React, { useState, useEffect } from "react";
-import {Link, useNavigate} from 'react-router-dom'
-import {
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-  } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase";
-
+import { loginUser } from "../actions/userActions";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Login = () => {
   const [userData, setUserData] = useState({});
-  const [user, setUser] = useState();
 
+  const { loading, isLogin } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
-  const navigate = useNavigate() ;
+  const navigate = useNavigate();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-
-    if (user) {
+    if (isLogin) {
       navigate("/");
     }
-  }, [user]);
-
+  }, [isLogin]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        userData.email,
-        userData.password
-      );
-
-      // console.log(userData);
-      console.log(user);
-    } catch (err) {
-      console.log(err.message);
-    }
+    dispatch(loginUser(userData));
   };
 
   return (
@@ -48,7 +30,7 @@ export const Login = () => {
         <div className="flex pt-36 justify-center items-center">
           <form className="flex md:w-1/4 flex-col gap-5" onSubmit={handleLogin}>
             <p className="text-4xl text-white font-bold">Login</p>
-    
+
             <input
               onChange={(e) => {
                 setUserData({
@@ -83,15 +65,16 @@ export const Login = () => {
             >
               Login
             </button>
-            <p className="text-white">Don't have an account <Link to="/auth/register" className="text-blue-500 underline">register</Link> here.</p>
+            <p className="text-white">
+              Don't have an account{" "}
+              <Link to="/auth/register" className="text-blue-500 underline">
+                register
+              </Link>{" "}
+              here.
+            </p>
           </form>
         </div>
       </div>
     </>
   );
 };
-
-
-
-
-

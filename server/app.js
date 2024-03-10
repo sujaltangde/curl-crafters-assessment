@@ -17,11 +17,12 @@ app.use(cors({
 
 // Routes Import
 const user = require("./routes/userRoutes.js")
-// const results = require("./routes/resultsRoutes.js")
+const quiz = require("./routes/quizRoutes.js")
 
 
 
 app.use("/api/", user);
+app.use("/api/quiz/", quiz);
 
 
 

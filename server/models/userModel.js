@@ -15,6 +15,17 @@ const UserSchema = new mongoose.Schema({
         unique: true
     },
 
+    attempted: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
+    isAdmin: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
+
     password: {
         type: String,
         required: [true, "Please enter a password"]

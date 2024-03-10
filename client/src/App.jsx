@@ -8,11 +8,22 @@ import { useEffect, useState } from "react";
 import { Start } from "./pages/Start";
 import { Quiz } from "./pages/Quiz";
 import { auth } from "./config/firebase";
+import {IsLogin} from './actions/userActions'
+import {useDispatch} from 'react-redux'
+
 
 function App() {
   const [user, setUser] = useState();
 
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const LogOrNot = () => {
+      dispatch(IsLogin());
+    }
+    LogOrNot()
+  }, []);
+  
 
   
   return (

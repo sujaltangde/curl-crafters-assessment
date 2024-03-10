@@ -1,44 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-} from "firebase/auth";
-import { auth } from "../config/firebase";
+import {registerUser} from '../actions/userActions'
+import { useDispatch, useSelector } from 'react-redux';
 
 export const Register = () => {
   const [userData, setUserData] = useState({});
-  const [user, setUser] = useState();
+
+  const {loading, isLogin} = useSelector(state => state.user)
+  const dispatch = useDispatch()
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
 
-    if (user) {
+    if (isLogin) {
       navigate("/");
     }
-  }, [user]);
+  }, [isLogin]);
 
   
 
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        userData.email,
-        userData.password
-      );
+    dispatch(registerUser(userData))
 
-      // console.log(userData);
-      console.log(user);
-    } catch (err) {
-      console.log(err.message);
-    }
+    
   };
 
   return (
