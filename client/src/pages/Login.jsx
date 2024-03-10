@@ -5,6 +5,7 @@ import { auth } from "../config/firebase";
 import { loginUser } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 
+
 export const Login = () => {
   const [userData, setUserData] = useState({});
 
@@ -22,6 +23,7 @@ export const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     dispatch(loginUser(userData));
+    
   };
 
   return (

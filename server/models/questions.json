@@ -1,263 +1,262 @@
 [
-    {
-      "id": 1,
-      "question": "What does the const keyword do in JavaScript?",
-      "options": [
-        {
-          "label": "A",
-          "text": "Declares a variable that cannot be reassigned",
-          "isCorrect": true
-        },
-        {
-          "label": "B",
-          "text": "Declares a variable with block scope",
-          "isCorrect": false
-        },
-        {
-          "label": "C",
-          "text": "Declares a variable that can only be accessed within a function",
-          "isCorrect": false
-        },
-        {
-          "label": "D",
-          "text": "Declares a variable that can be reassigned multiple times",
-          "isCorrect": false
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "question": "What is the output of console.log(typeof [])?",
-      "options": [
-        {
-          "label": "A",
-          "text": "object",
-          "isCorrect": true
-        },
-        {
-          "label": "B",
-          "text": "array",
-          "isCorrect": false
-        },
-        {
-          "label": "C",
-          "text": "undefined",
-          "isCorrect": false
-        },
-        {
-          "label": "D",
-          "text": "string",
-          "isCorrect": false
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "question": "How can you clone an object in JavaScript?",
-      "options": [
-        {
-          "label": "A",
-          "text": "Using Object.clone(obj)",
-          "isCorrect": false
-        },
-        {
-          "label": "B",
-          "text": "Using the spread operator {...obj}",
-          "isCorrect": true
-        },
-        {
-          "label": "C",
-          "text": "Using obj.clone()",
-          "isCorrect": false
-        },
-        {
-          "label": "D",
-          "text": "Using Object.prototype.clone.call(obj)",
-          "isCorrect": false
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "question": "What does the this keyword refer to in JavaScript?",
-      "options": [
-        {
-          "label": "A",
-          "text": "Refers to the current scope",
-          "isCorrect": false
-        },
-        {
-          "label": "B",
-          "text": "Refers to the parent function's scope",
-          "isCorrect": false
-        },
-        {
-          "label": "C",
-          "text": "Refers to the object that owns the function being executed",
-          "isCorrect": true
-        },
-        {
-          "label": "D",
-          "text": "Refers to the global object",
-          "isCorrect": false
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "question": "Which method is used to add a new element to the end of an array?",
-      "options": [
-        {
-          "label": "A",
-          "text": "array.push()",
-          "isCorrect": true
-        },
-        {
-          "label": "B",
-          "text": "array.add()",
-          "isCorrect": false
-        },
-        {
-          "label": "C",
-          "text": "array.insertEnd()",
-          "isCorrect": false
-        },
-        {
-          "label": "D",
-          "text": "array.append()",
-          "isCorrect": false
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "question": "What is the purpose of the Promise object in JavaScript?",
-      "options": [
-        {
-          "label": "A",
-          "text": "To handle asynchronous operations and represent a value that may be available now, in the future, or never",
-          "isCorrect": true
-        },
-        {
-          "label": "B",
-          "text": "To handle synchronous operations and represent a single value at a time",
-          "isCorrect": false
-        },
-        {
-          "label": "C",
-          "text": "To handle HTTP requests and responses",
-          "isCorrect": false
-        },
-        {
-          "label": "D",
-          "text": "To represent complex mathematical calculations",
-          "isCorrect": false
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "question": "What is the difference between == and === in JavaScript?",
-      "options": [
-        {
-          "label": "A",
-          "text": "== compares values for equality without type conversion, while === compares both values and types",
-          "isCorrect": true
-        },
-        {
-          "label": "B",
-          "text": "== compares values and types, while === compares values only",
-          "isCorrect": false
-        },
-        {
-          "label": "C",
-          "text": "== is used for assignment, while === is used for comparison",
-          "isCorrect": false
-        },
-        {
-          "label": "D",
-          "text": "There is no difference; they are interchangeable",
-          "isCorrect": false
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "question": "What does the Array.prototype.filter() method do?",
-      "options": [
-        {
-          "label": "A",
-          "text": "Modifies the original array by removing elements that do not match a condition",
-          "isCorrect": false
-        },
-        {
-          "label": "B",
-          "text": "Creates a new array with all elements that pass a test implemented by the provided function",
-          "isCorrect": true
-        },
-        {
-          "label": "C",
-          "text": "Sorts the elements of the array in place",
-          "isCorrect": false
-        },
-        {
-          "label": "D",
-          "text": "Adds new elements to the beginning of the array",
-          "isCorrect": false
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "question": "Which keyword is used to declare a block of code to be executed, depending on different conditions, in JavaScript?",
-      "options": [
-        {
-          "label": "A",
-          "text": "switch",
-          "isCorrect": true
-        },
-        {
-          "label": "B",
-          "text": "case",
-          "isCorrect": false
-        },
-        {
-          "label": "C",
-          "text": "if",
-          "isCorrect": false
-        },
-        {
-          "label": "D",
-          "text": "else",
-          "isCorrect": false
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "question": "What is the purpose of the bind() method in JavaScript?",
-      "options": [
-        {
-          "label": "A",
-          "text": "To create a new array with the results of calling a provided function on every element in the calling array",
-          "isCorrect": false
-        },
-        {
-          "label": "B",
-          "text": "To attach an event handler function to an element",
-          "isCorrect": false
-        },
-        {
-          "label": "C",
-          "text": "To create a new function that, when called, has its this keyword set to a specified value",
-          "isCorrect": true
-        },
-        {
-          "label": "D",
-          "text": "To check if a specified object is a prototype of another object in the database",
-          "isCorrect": false
-        }
-      ]
-    }
-  ]
-  
+  {
+    "id": 1,
+    "question": "What does const keyword do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cannot reassign",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "text": "Block scope",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "text": "Function access",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "text": "Reassign multiple times",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "console.log(typeof []) output?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Object",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "text": "Array",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "text": "Undefined",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "text": "String",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "How clone object in JavaScript?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Object.clone()",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "text": "Spread operator",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "text": "Obj.clone()",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "text": "Object.prototype.clone.call()",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "this keyword in JavaScript refers to?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Current scope",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "text": "Parent function scope",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "text": "Object owner",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "text": "Global object",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "Method to add element to end of array?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Array.push()",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "text": "Array.add()",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "text": "Array.insertEnd()",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "text": "Array.append()",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "Purpose of Promise object in JavaScript?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Asynchronous operations",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "text": "Synchronous operations",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "text": "HTTP requests",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "text": "Mathematical calculations",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "== vs === in JavaScript?",
+    "options": [
+      {
+        "label": "A",
+        "text": "== value vs type",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "text": "== value and type",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "text": "== assignment",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "text": "No difference",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "Array.prototype.filter() method does?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Remove unmatched",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "text": "Create new array",
+        "isCorrect": true
+      },
+      {
+        "label": "C",
+        "text": "Sort array",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "text": "Add elements",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "question": "Keyword for conditional block in JavaScript?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Switch",
+        "isCorrect": true
+      },
+      {
+        "label": "B",
+        "text": "Case",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "text": "If",
+        "isCorrect": false
+      },
+      {
+        "label": "D",
+        "text": "Else",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Purpose of bind() method in JavaScript?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Create new array",
+        "isCorrect": false
+      },
+      {
+        "label": "B",
+        "text": "Attach event handler",
+        "isCorrect": false
+      },
+      {
+        "label": "C",
+        "text": "Set this keyword",
+        "isCorrect": true
+      },
+      {
+        "label": "D",
+        "text": "Check object prototype",
+        "isCorrect": false
+      }
+    ]
+  }
+]

@@ -4,7 +4,7 @@ const Score = require("../models/scoreModel");
 const User = require("../models/userModel");
 const axios = require("axios");
 
-// console.log(questions)
+
 
 exports.addQuestions = async (req, res) => {
   try {
@@ -63,6 +63,13 @@ exports.submitQuiz = async (req, res) => {
 
     const user = await User.findOne({ email: req.email });
 
+    if(user.attempted === true){
+      return res.status(201).json({
+        success: true,
+        message: "Quiz already submitted!",
+      });
+    }
+
     user.attempted = true;
 
     await user.save();
@@ -76,7 +83,7 @@ exports.submitQuiz = async (req, res) => {
     res.status(201).json({
       success: true,
       submittedScore,
-      message: "questions fetched",
+      message: "Quiz submitted successfully!",
     });
   } catch (err) {
     res.status(500).json({
@@ -92,6 +99,8 @@ exports.getScore = async (req,res) => {
         const user = await User.findOne({email: req.email}) ;
 
         const score = await Score.findOne({userId: user._id}) ;
+
+        console.log(score)
 
         res.status(200).json({
             success: true,

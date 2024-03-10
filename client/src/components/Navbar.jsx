@@ -5,18 +5,23 @@ import { signOut } from "firebase/auth";
 import { auth } from "../config/firebase";
 import { useDispatch } from "react-redux";
 import { IsLogin } from "../actions/userActions";
+import { clearStates } from "../slices/UserSlice";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 export const Navbar = () => {
 
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const LogOut = async () => {
+      dispatch(clearStates())
         await signOut(auth)
         localStorage.removeItem("accessToken")
         toast.success("Logout successful!")
         dispatch(IsLogin())
+        navigate("/auth/login")
     }
 
   return (

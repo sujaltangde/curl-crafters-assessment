@@ -1,7 +1,12 @@
 import {getAllQuestionsRequest,getAllQuestionsSuccess,getAllQuestionsFail, setQuestionsOption,
-    submitQuizRequest,submitQuizSuccess,submitQuizFail} from '../slices/QuizSlice'
+    submitQuizRequest,submitQuizSuccess,submitQuizFail,
+    getScoreRequest,
+    getScoreSuccess,
+    getScoreFail} from '../slices/QuizSlice'
 import { toast } from "react-toastify";
 import axios from "axios";
+
+
 
 
 
@@ -12,7 +17,9 @@ export const addQuestions = () => async (dispatch) => {
             headers:{
                 Authorization: `Bearer ${localStorage.getItem("accessToken")}`
             }
-        }
+        }   
+
+        const d = ""
 
         const {data} = await axios.get("http://localhost:5000/api/quiz/addQuestions",config) ;
 
@@ -46,11 +53,12 @@ export const getQuestions = () => async (dispatch) => {
     }
 }
 
+
 export const setQuestionOption = (data) => async (dispatch) => {
     dispatch(setQuestionsOption(data))
 }
 
-export const submitQuiz = (quizData) => async (dispatch) => {
+export const submitQuiz = (navigate,quizData) => async (dispatch) => {
     // console.log(quizData)
     try{
         dispatch(submitQuizRequest())
@@ -65,12 +73,35 @@ export const submitQuiz = (quizData) => async (dispatch) => {
             options:quizData
         },config) ;
 
-        console.log(data)
-
         dispatch(submitQuizSuccess())
+        dispatch(getScoreSuccess(data.submittedScore))
+        toast.success(data.message)
+        navigate("/score")
 
     }catch(err){
         dispatch(submitQuizFail(err.response.data.message)) ;
     }
     // dispatch(setQuestionsOption(data))
+}
+
+
+export const getScore = () => async (dispatch) => {
+    try{
+        dispatch(getScoreRequest())
+
+        const config = {
+            headers:{
+                Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+            }
+        }
+
+        const {data} = await axios.get("http://localhost:5000/api/quiz/getScore",config) ;
+
+        console.log(data)
+
+        dispatch(getScoreSuccess(data.score))
+
+    }catch(err){
+        dispatch(getScoreFail(err.response.data.message)) ;
+    }
 }

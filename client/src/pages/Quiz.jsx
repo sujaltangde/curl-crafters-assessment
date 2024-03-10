@@ -3,6 +3,7 @@ import { Navbar } from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getQuestions, setQuestionOption, submitQuiz } from "../actions/quizActions";
+import { Loader } from "../components/Loader";
 
 export const Quiz = () => {
   const { isLogin } = useSelector((state) => state.user);
@@ -43,7 +44,6 @@ export const Quiz = () => {
         if (prevTime === 0) {
           clearInterval(questionInterval);
           clearInterval(quizInterval);
-          // Handle quiz completion, maybe show a message or redirect
         }
         return prevTime - 1;
       });
@@ -82,6 +82,8 @@ export const Quiz = () => {
 
   const recordAnswers = (option, queNo) => {
     setSelectedOption(option)
+
+    console.log(option)
     
     
     let newSelectedOptions = selectedOptions.map(item =>
@@ -93,8 +95,8 @@ export const Quiz = () => {
 
 
   const handleQuizSubmit = ()=>{
-    console.log(selectedOptions)
-    dispatch(submitQuiz(selectedOptions))
+    dispatch(submitQuiz(navigate,selectedOptions))
+    
   }
 
   return (
@@ -103,7 +105,7 @@ export const Quiz = () => {
         <Navbar />
 
         {loading ? (
-          "Loading..."
+         <Loader/>
         ) : (
           <>
             {(currentQuestionIndex === allQuestions.length - 1 &&
@@ -113,17 +115,17 @@ export const Quiz = () => {
                 <button className="text-3xl font-semibold bg-blue-600 px-12 py-2" onClick={handleQuizSubmit}>Submit Quiz</button>
               </div>
             ) : (
-              <div className=" md:mx-72 flex  flex-col  items-center">
-                <p className="text-6xl font-semibold  pb-12">
+              <div className=" md:mx-72 mx-5 flex  flex-col  items-center">
+                <p className="md:text-6xl text-3xl font-semibold  pb-12">
                   {formatTime(quizTimeLeft)}
                 </p>
 
                 <div className="w-full">
                   <div className="flex  justify-between items-center gap-2 py-5">
-                    <p className="text-2xl font-semibold">
+                    <p className="md:text-2xl text-xl font-semibold">
                       Question {currentQuestionIndex + 1}
                     </p>
-                    <p className="text-lg font-semibold">
+                    <p className="md:text-lg text-base font-semibold">
                       Time left for question: {formatTime(questionTimeLeft)}
                     </p>
                   </div>
@@ -132,7 +134,7 @@ export const Quiz = () => {
                     {allQuestions && allQuestions.length > 0 && (
                       <>
                         <div>
-                          <p className="text-xl  font-bold">
+                          <p className="md:text-xl text-lg  font-bold">
                             {allQuestions[currentQuestionIndex].question}
                           </p>
                         </div>
@@ -148,8 +150,8 @@ export const Quiz = () => {
                                   .label
                               }
                             </span>
-                            <span className={`text-base text-black w-full bg-gray-400 px-5 py-2 font-semibold 
-                            ${selectedOption === "A" && "bg-blue-400"}`}>
+                            <span className={`text-base text-black w-full  px-5 py-2 font-semibold 
+                            ${selectedOption === "A" ? "bg-blue-400" : "bg-gray-400"}`}>
                               {
                                 allQuestions[currentQuestionIndex].options[0]
                                   .text
@@ -164,8 +166,8 @@ export const Quiz = () => {
                                   .label
                               }
                             </span>
-                        <span className={`text-base text-black w-full bg-gray-400 px-5 py-2   font-semibold 
-                        ${selectedOption === "B" && "bg-blue-400"}
+                        <span className={`text-base text-black w-full  px-5 py-2   font-semibold 
+                        ${selectedOption === "B" ? "bg-blue-400" : "bg-gray-400"}
                         `}>
                               {
                                 allQuestions[currentQuestionIndex].options[1]
@@ -181,8 +183,8 @@ export const Quiz = () => {
                                   .label
                               }
                             </span>
-                            <span className={`text-base text-black w-full bg-gray-400 px-5 py-2   
-                            font-semibold ${selectedOption === "C" && "bg-blue-400"}`}>
+                            <span className={`text-base text-black w-full  px-5 py-2   
+                            font-semibold ${selectedOption === "C" ? "bg-blue-400" : "bg-gray-400"}`}>
                               {
                                 allQuestions[currentQuestionIndex].options[2]
                                   .text
@@ -197,7 +199,7 @@ export const Quiz = () => {
                                   .label
                               }
                             </span>
-                            <span className={`text-base text-black w-full bg-gray-400 px-5 py-2   font-semibold ${selectedOption === "D" && "bg-blue-400"}`}>
+                            <span className={`text-base text-black w-full  px-5 py-2   font-semibold ${selectedOption === "D" ? "bg-blue-400" : "bg-gray-400"}`}>
                               {
                                 allQuestions[currentQuestionIndex].options[3]
                                   .text

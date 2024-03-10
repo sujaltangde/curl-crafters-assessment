@@ -7,37 +7,34 @@ import { Register } from "./pages/Register";
 import { useEffect, useState } from "react";
 import { Start } from "./pages/Start";
 import { Quiz } from "./pages/Quiz";
-import { auth } from "./config/firebase";
-import {IsLogin} from './actions/userActions'
-import {useDispatch} from 'react-redux'
-
+import { IsLogin } from "./actions/userActions";
+import { useDispatch } from "react-redux";
+import { Score } from "./pages/Score";
+import { AdminPanel } from "./pages/AdminPanel";
 
 function App() {
-  const [user, setUser] = useState();
+  
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const LogOrNot = () => {
       dispatch(IsLogin());
-    }
-    LogOrNot()
+    };
+    LogOrNot();
   }, []);
-  
 
-  
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <div className="text-sm">
-        {user && JSON.stringify(user.accessToken)}
-    </div> */}
+    
 
       <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
-        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/quiz" element={<Quiz/>} />
+        <Route path="/score" element={<Score />} />
+        <Route path="/admin" element={<AdminPanel />} />
       </Routes>
 
       <ToastContainer

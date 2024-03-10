@@ -6,6 +6,10 @@ const ScoreSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
     },
+    username:{
+        type: String,
+        required: true,
+    },
     score:{
         type: Number,
         required: true,

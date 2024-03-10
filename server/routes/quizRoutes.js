@@ -3,12 +3,11 @@ const { addQuestions, getQuestions, submitQuiz, getScore, getScores } = require(
 const { isAuthenticated } = require("../middlewares/auth");
 const router = express.Router();
 
-router.route("/addQuestions").post(isAuthenticated,addQuestions);
+router.route("/addQuestions").get(isAuthenticated,addQuestions);
 router.route("/getQuestions").get(isAuthenticated,getQuestions);
 router.route("/getQuestions-backend").get(getQuestions);
 router.route("/submit").post(isAuthenticated,submitQuiz);
 router.route("/getScore").get(isAuthenticated,getScore);
-router.route("/getScores").get(isAuthenticated, getScores);
-// router.route("/userDetails").get(isAuthenticated, userDetails) ;
+router.route("/getScores").get(isAuthenticated, getScores);;
 
 module.exports = router;
